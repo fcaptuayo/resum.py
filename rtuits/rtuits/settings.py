@@ -2,6 +2,7 @@
 # Django settings for rtuits project.
 import os
 RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
+PROJECT_DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -80,13 +81,13 @@ STATIC_ROOT = ''
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
 #STATIC_URL = '/home/fcaptuayo/resum.py/rtuits/trends/template/'
-STATIC_URL = '/templates/'
+STATIC_URL = '/static/'
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-     os.path.join(RUTA_PROYECTO,'templates'),
+     os.path.join(RUTA_PROYECTO,'static'),
    )
 
 # List of finder classes that know how to find static files in
@@ -125,14 +126,12 @@ ROOT_URLCONF = 'rtuits.urls'
 WSGI_APPLICATION = 'rtuits.wsgi.application'
 
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative pathsself.
-  
-    "/home/fcaptuayo/resum.py/rtuits/trends/"
+
+TEMPLATE_DIRS = (       
+                  os.path.join(PROJECT_DIR, 'templates'),
 
 )
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
